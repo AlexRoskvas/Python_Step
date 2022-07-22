@@ -1,10 +1,10 @@
 import boto3
 from tkinter import *
 window=Tk()
-window.geometry('440x250')
-Label(window,text="*****Hello, please make a choice !!!! *****").grid(row=0,column=0)
-Label(window,text="*******************************************").grid(row=1,column=0)
-
+window.geometry('700x500')
+Label(window,text="*****Hello, please make a choice !!!! *****",font=('Arial','14','bold')).grid(row=0,column=0)
+Label(window,text="*******************************************",font=('Arial','14','bold')).grid(row=1,column=0)
+window.title('AWS manager')
 ec2=boto3.resource("ec2",region_name="eu-north-1")
 
 
@@ -177,13 +177,13 @@ def AmazonLinuxWeb():
     instance[0].reload()
     ip = instance[0].public_ip_address
     Label(window,text="                                           ").grid(row=25,column=0)
-    Label(window,text="Istance was successfully created with ip"+ip).grid(row=25,column=0)
+    Label(window,text="Istance was successfully created with ip"+ip,font=('Arial','14','bold')).grid(row=25,column=0)
     
 
-Button(window,text="----      Run Ubuntu 20.04 LTS EC2 Instanse on AWS       ----",command=Ubuntu,bg="blue").grid(row=5,column=0)
-Button(window,text="----Run Ubuntu 20.04 with WEB Server (Apache2) LTS EC2 Instanse on AWS ----",command=UbuntuWeb,bg="yellow").grid(row=10,column=0)
-Button(window,text="----      Run Amazon Linux 2 AMI EC2 Instanse on AWS       ----",command=AmazonLinux,bg="blue").grid(row=15,column=0)
-Button(window,text="----Run Amazon Linux 2 AMI with WEB Server (httpd) EC2 Instanse on AWS ----",command=AmazonLinuxWeb, bg="yellow").grid(row=20,column=0)
+Button(window,text="----      Run Ubuntu 20.04 LTS EC2 Instanse on AWS       ----",command=Ubuntu,bg="blue",fg="yellow",font=('Arial',14)).grid(row=5,column=0)
+Button(window,text="----Run Ubuntu 20.04 with WEB Server (Apache2) LTS EC2 Instanse on AWS ----",command=UbuntuWeb,bg="yellow",fg="blue",font=('Arial',14)).grid(row=10,column=0)
+Button(window,text="----      Run Amazon Linux 2 AMI EC2 Instanse on AWS       ----",command=AmazonLinux,bg="blue",fg="yellow",font=('Arial',14)).grid(row=15,column=0)
+Button(window,text="----Run Amazon Linux 2 AMI with WEB Server (httpd) EC2 Instanse on AWS ----",command=AmazonLinuxWeb, bg="yellow",fg="blue",font=('Arial',14)).grid(row=20,column=0)
 
 window.mainloop()
 
